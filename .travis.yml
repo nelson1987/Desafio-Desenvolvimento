@@ -3,8 +3,7 @@ mono: none
 dotnet: 2.2
 solution: "./Desafio.sln"
 install:
-  - nuget restore
-  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+- dotnet restore
 script:
 - dotnet build
 - dotnet test ./Desafio.Domain.Tests/Desafio.Domain.Tests.csproj
