@@ -12,7 +12,7 @@ namespace Desafio.Domain.Tests.Entities
         [Test]
         public void CriarFundo()
         {
-            Assert.Pass();
+            Assert.Fail();
         }
     }
 }
