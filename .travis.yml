@@ -4,7 +4,5 @@ dotnet: 2.2
 solution: "./Desafio.sln"
 install:
 - dotnet restore
-- travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./Desafio.sln
 script:
 - dotnet build
-- xbuild ./Desafio.sln
