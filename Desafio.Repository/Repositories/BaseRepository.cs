@@ -12,19 +12,19 @@ where TEntity : class
     {
         private readonly DesafioContext context;
         //construtor com entrada de argumentos
-        public BaseRepository(DesafioContext context)
+        protected BaseRepository(DesafioContext context)
         {
             this.context = context;
         }
 
         public int Count()
         {
-            throw new NotImplementedException();
+            return context.Set<TEntity>().Count();
         }
 
         public int Count(Func<TEntity, bool> expression)
         {
-            throw new NotImplementedException();
+            return context.Set<TEntity>().Count(expression);
         }
 
         public void Create(TEntity obj)
@@ -32,11 +32,13 @@ where TEntity : class
             context.Entry(obj).State = EntityState.Added;
             context.SaveChanges();
         }
+
         public void Delete(TEntity obj)
         {
             context.Entry(obj).State = EntityState.Deleted;
             context.SaveChanges();
         }
+
         public void Dispose()
         {
             context.Dispose();
@@ -44,7 +46,7 @@ where TEntity : class
 
         public TEntity Find(Func<TEntity, bool> expression)
         {
-            throw new NotImplementedException();
+            return context.Set<TEntity>().FirstOrDefault(expression);
         }
 
         public List<TEntity> FindAll()
@@ -69,7 +71,8 @@ where TEntity : class
 
         public void Insert(TEntity t)
         {
-            throw new NotImplementedException();
+            context.Entry(t).State = EntityState.Added;
+            context.SaveChanges();
         }
 
         public void Update(TEntity obj)

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Desafio.Api.Controllers
 {
@@ -16,11 +17,10 @@ namespace Desafio.Api.Controllers
             try
             {
                 var fundos = fundoApplication.Listar();
-                return new string[] { "value1", "value2" };
+                return fundos.Select(x => x.Nome).ToList();
             }
             catch (Exception ex)
             {
-                Console.Write(ex);
                 return BadRequest("Erro ao listar Fundos.");
             }
         }

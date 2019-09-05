@@ -5,8 +5,9 @@ namespace Desafio.Domain.Tests.Entities
     public class FundoTests
     {
         [SetUp]
-        public void Setup()
+        public virtual void Setup()
         {
+
         }
 
         [Test]
