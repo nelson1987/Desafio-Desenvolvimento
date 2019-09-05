@@ -16,13 +16,13 @@ namespace Desafio.Domain.Services
         {
             if (!Investidor.InvesteEm(Fundo))
             {
-                throw new DomainServiceException("Não é possível realizar um resgate pois o investidor não investe no fundo.");
+                throw new DomainServiceException(Resources.Dicionario.IMPOSSIVEL_RESGATE_INVESTIDOR_NAO_INVESTE_NO_FUNDO);
             }
             else
             {
                 if (Investidor.ValorTotalDisponivel(Fundo) < (ValorInvestido * -1))
                 {
-                    throw new DomainServiceException("Não é possível realizar um resgate maior que o disponível no fundo.");
+                    throw new DomainServiceException(Resources.Dicionario.IMPOSSIVEL_RESGATE_MAIOR_QUE_DISPONIVEL);
                 }
             }
             return true;

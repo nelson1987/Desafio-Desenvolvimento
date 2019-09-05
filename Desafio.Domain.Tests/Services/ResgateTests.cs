@@ -26,7 +26,7 @@ namespace Desafio.Domain.Tests.Services
         public void ResgatarSemTerOFundo()
         {
             Exception ex = Assert.Throws<DomainServiceException>(delegate { investidor.Resgatar(fundo, 100.00M); });
-            Assert.That(ex.Message, Is.EqualTo("Não é possível realizar um resgate pois o investidor não investe no fundo."));
+            Assert.AreEqual(ex.Message, Resources.Dicionario.IMPOSSIVEL_RESGATE_INVESTIDOR_NAO_INVESTE_NO_FUNDO);
         }
 
         [Test(Description = "Resgatar valor abaixo do total disponivel no fundo")]
@@ -53,7 +53,7 @@ namespace Desafio.Domain.Tests.Services
             investidor.Investir(fundo, 2000.00M);
 
             Exception ex = Assert.Throws<DomainServiceException>(delegate { investidor.Resgatar(fundo, 3000.00M); });
-            Assert.That(ex.Message, Is.EqualTo("Não é possível realizar um resgate maior que o disponível no fundo."));
+            Assert.AreEqual(ex.Message, Resources.Dicionario.IMPOSSIVEL_RESGATE_MAIOR_QUE_DISPONIVEL);
         }
 
         [Test(Description = "Resgatar valor de fundo não disponível para o cliente")]
@@ -61,7 +61,7 @@ namespace Desafio.Domain.Tests.Services
         {
             investidor.Investir(fundo, 2000.00M);
             Exception ex = Assert.Throws<DomainServiceException>(delegate { investidor.Resgatar(fundoNovo, 2000.00M); });
-            Assert.That(ex.Message, Is.EqualTo("Não é possível realizar um resgate pois o investidor não investe no fundo."));
+            Assert.AreEqual(ex.Message, Resources.Dicionario.IMPOSSIVEL_RESGATE_INVESTIDOR_NAO_INVESTE_NO_FUNDO);
         }
 
         [Test(Description = "Resgatar valor menor ao disponível no fundo e depois igual ao disponível")]
@@ -80,7 +80,7 @@ namespace Desafio.Domain.Tests.Services
             investidor.Resgatar(fundo, 1000.00M);
             
             Exception ex = Assert.Throws<DomainServiceException>(delegate { investidor.Resgatar(fundo, 4000.00M); });
-            Assert.That(ex.Message, Is.EqualTo("Não é possível realizar um resgate maior que o disponível no fundo."));
+            Assert.AreEqual(ex.Message, Resources.Dicionario.IMPOSSIVEL_RESGATE_MAIOR_QUE_DISPONIVEL);
 
         }
     }

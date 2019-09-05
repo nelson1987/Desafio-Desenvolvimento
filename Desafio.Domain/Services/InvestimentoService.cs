@@ -16,7 +16,7 @@ namespace Desafio.Domain.Services
             {
                 if (ValorInvestido < Fundo.MinimoExigido)
                 {
-                    throw new DomainServiceException("O valor investido deve ser maior que o mínimo exigido.");
+                    throw new DomainServiceException(Resources.Dicionario.VALOR_INVESTIDO_SERA_MAIOR_MINIMO_EXIGIDO);
                 }
             }
             return true;

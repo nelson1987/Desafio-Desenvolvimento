@@ -38,7 +38,7 @@ namespace Desafio.Domain.Tests.Services
         {
             InvestimentoService investimento = new InvestimentoService(Investidor, 500.00M, CopacabanaTrial);
             Exception ex = Assert.Throws<DomainServiceException>(delegate { investimento.isValid(); });
-            Assert.That(ex.Message, Is.EqualTo("O valor investido deve ser maior que o mínimo exigido."));
+            Assert.AreEqual(ex.Message, Resources.Dicionario.VALOR_INVESTIDO_SERA_MAIOR_MINIMO_EXIGIDO);
         }
 
         [Test(Description = "Investir valor maior ao mínimo inicial exigido pelo fundo, depois valor menor que o exigido")]
