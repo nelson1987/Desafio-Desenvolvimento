@@ -3,10 +3,9 @@ using Desafio.Domain.Repositories;
 
 namespace Desafio.Repository.Repositories
 {
-    public class FundoRepository
-        : BaseRepository<Fundo>, IFundoRepository
+    public class FundoRepository : BaseRepository<Fundo>, IFundoRepository
     {
-        private readonly DesafioContext context;
+        private DesafioContext context { get; set; }
         public FundoRepository(DesafioContext context)
         : base(context)
         {
