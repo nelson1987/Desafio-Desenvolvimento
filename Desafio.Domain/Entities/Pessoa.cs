@@ -23,7 +23,14 @@ namespace Desafio.Domain.Entities
                 Movimentacoes.Add(investimento.Movimentacao);
         }
 
-        public bool JaInvesteEm(Fundo fundo)
+        public void Resgatar(Fundo fundo, decimal valorInvestido)
+        {
+            ResgateService resgate = new ResgateService(this, valorInvestido, fundo);
+            if (resgate.isValid())
+                Movimentacoes.Add(resgate.Movimentacao);
+        }
+
+        public bool InvesteEm(Fundo fundo)
         {
             return Movimentacoes.Any(x => x.Fundo == fundo);
         }

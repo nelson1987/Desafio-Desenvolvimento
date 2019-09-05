@@ -6,5 +6,6 @@ namespace Desafio.Domain.Entities
     {
         public Guid Id { get; set; }
         public Fundo Fundo { get; set; }
+        public decimal ValorInvestido { get; set; }
     }
 }
