@@ -19,7 +19,7 @@ namespace Desafio.Domain.Services
             else
             {
                 var totalInvestidoNoFundo = Investidor.Movimentacoes.Where(x=>x.Fundo == Fundo).Sum(x => x.ValorInvestido);
-                if (totalInvestidoNoFundo <= ValorInvestido)
+                if (totalInvestidoNoFundo < (ValorInvestido*-1))
                     throw new DomainServiceException("Não é possível realizar um resgate maior que o disponível no fundo.");
             }
             return true;

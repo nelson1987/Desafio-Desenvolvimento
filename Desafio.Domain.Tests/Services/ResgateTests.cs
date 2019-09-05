@@ -2,6 +2,7 @@ using Desafio.Domain.Entities;
 using Desafio.Domain.Exceptions;
 using NUnit.Framework;
 using System;
+using System.Linq;
 
 namespace Desafio.Domain.Tests.Services
 {
@@ -33,6 +34,8 @@ namespace Desafio.Domain.Tests.Services
         {
             investidor.Investir(fundo, 2000.00M);
             investidor.Resgatar(fundo, 1000.00M);
+            Assert.AreEqual(investidor.Movimentacoes.Count(), 2);
+            Assert.AreEqual(investidor.Movimentacoes.Where(x => x.Fundo == fundo).Sum(x=>x.ValorInvestido), 1000.00M);
         }
 
         [Test(Description = "Resgatar valor igual ao total disponivel no fundo")]
@@ -40,13 +43,17 @@ namespace Desafio.Domain.Tests.Services
         {
             investidor.Investir(fundo, 2000.00M);
             investidor.Resgatar(fundo, 2000.00M);
+            Assert.AreEqual(investidor.Movimentacoes.Count(), 2);
+            Assert.AreEqual(investidor.Movimentacoes.Where(x => x.Fundo == fundo).Sum(x => x.ValorInvestido), 0.00M);
         }
 
         [Test(Description = "Resgatar valor acima do total disponivel no fundo")]
         public void ResgatarAcimaDisponivel()
         {
             investidor.Investir(fundo, 2000.00M);
-            investidor.Resgatar(fundo, 3000.00M);
+
+            Exception ex = Assert.Throws<DomainServiceException>(delegate { investidor.Resgatar(fundo, 3000.00M); });
+            Assert.That(ex.Message, Is.EqualTo("Não é possível realizar um resgate maior que o disponível no fundo."));
         }
 
         [Test(Description = "Resgatar valor de fundo não disponível para o cliente")]
@@ -63,6 +70,7 @@ namespace Desafio.Domain.Tests.Services
             investidor.Investir(fundo, 2000.00M);
             investidor.Resgatar(fundo, 1000.00M);
             investidor.Resgatar(fundo, 1000.00M);
+            Assert.AreEqual(investidor.Movimentacoes.Count(), 3);
         }
 
         [Test(Description = "Resgatar abaixo do disponivel e depois acima do disponível em seguida")]
@@ -70,7 +78,10 @@ namespace Desafio.Domain.Tests.Services
         {
             investidor.Investir(fundo, 2000.00M);
             investidor.Resgatar(fundo, 1000.00M);
-            investidor.Resgatar(fundo, 4000.00M);
+            
+            Exception ex = Assert.Throws<DomainServiceException>(delegate { investidor.Resgatar(fundo, 4000.00M); });
+            Assert.That(ex.Message, Is.EqualTo("Não é possível realizar um resgate maior que o disponível no fundo."));
+
         }
     }
 }
