@@ -15,12 +15,15 @@ namespace Desafio.Domain.Services
         public override bool isValid()
         {
             if (!Investidor.InvesteEm(Fundo))
+            {
                 throw new DomainServiceException("Não é possível realizar um resgate pois o investidor não investe no fundo.");
+            }
             else
             {
-                var totalInvestidoNoFundo = Investidor.Movimentacoes.Where(x=>x.Fundo == Fundo).Sum(x => x.ValorInvestido);
-                if (totalInvestidoNoFundo < (ValorInvestido*-1))
+                if (Investidor.ValorTotalDisponivel(Fundo) < (ValorInvestido * -1))
+                {
                     throw new DomainServiceException("Não é possível realizar um resgate maior que o disponível no fundo.");
+                }
             }
             return true;
         }

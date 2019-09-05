@@ -11,7 +11,10 @@ namespace Desafio.Domain.Entities
         {
             Movimentacoes = new List<Movimentacao>();
         }
-
+        public decimal ValorTotalDisponivel(Fundo fundo)
+        {
+            return Movimentacoes.Where(x => x.Fundo == fundo).Sum(x => x.ValorInvestido);
+        }
         public Guid Id { get; set; }
 
         public List<Movimentacao> Movimentacoes { get; set; }

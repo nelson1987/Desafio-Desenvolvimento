@@ -9,7 +9,7 @@ namespace Desafio.Domain.Entities
 
         }
 
-        public Fundo(string nome, decimal minimoExigido) : base()
+        public Fundo(string nome, decimal minimoExigido) : this()
         {
             Nome = nome;
             MinimoExigido = minimoExigido;

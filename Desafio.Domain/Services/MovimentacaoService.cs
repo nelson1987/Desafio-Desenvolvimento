@@ -5,7 +5,7 @@ namespace Desafio.Domain.Services
     public abstract class MovimentacaoService
     {
 
-        public MovimentacaoService(Pessoa investidor, decimal valorInvestido, Fundo fundo)
+        protected MovimentacaoService(Pessoa investidor, decimal valorInvestido, Fundo fundo)
         {
             Investidor = investidor;
             ValorInvestido = valorInvestido;
@@ -22,14 +22,13 @@ namespace Desafio.Domain.Services
         {
             get
             {
-                return new Movimentacao()
+                return new Movimentacao
                 {
                     Fundo = this.Fundo,
                     ValorInvestido = this.ValorInvestido
                 };
             }
         }
-
         public abstract bool isValid();
     }
 }
