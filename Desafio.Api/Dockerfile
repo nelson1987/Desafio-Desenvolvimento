@@ -11,7 +11,7 @@ WORKDIR /src
 COPY ["Desafio.Api/Desafio.Api.csproj", "Desafio.Api/"]
 RUN dotnet restore "Desafio.Api/Desafio.Api.csproj"
 COPY . .
-WORKDIR "/src/Desafio.Api"
+WORKDIR /src/Desafio.Api
 RUN dotnet build "Desafio.Api.csproj" -c Release -o /app
 
 FROM build AS publish
