@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Desafio.Application", "Desa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio.Domain.Tests", "Desafio.Domain.Tests\Desafio.Domain.Tests.csproj", "{5C64C823-B8F6-4634-A8AA-4F9F0E04679D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio.Api.Contracts", "Desafio.Api.Contracts\Desafio.Api.Contracts.csproj", "{ED7797F4-D7D2-48C6-B079-13833C9A1D82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{5C64C823-B8F6-4634-A8AA-4F9F0E04679D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C64C823-B8F6-4634-A8AA-4F9F0E04679D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C64C823-B8F6-4634-A8AA-4F9F0E04679D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED7797F4-D7D2-48C6-B079-13833C9A1D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED7797F4-D7D2-48C6-B079-13833C9A1D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED7797F4-D7D2-48C6-B079-13833C9A1D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED7797F4-D7D2-48C6-B079-13833C9A1D82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{45B21891-6BA0-46FC-86E5-0E31210A3811} = {AA321303-D13C-4C24-A274-6F7782E06004}
 		{13B4A555-B426-4EB5-899C-5832DAE5D2D8} = {BDB04218-43E0-4C93-BA62-4A78BB259605}
 		{5C64C823-B8F6-4634-A8AA-4F9F0E04679D} = {B9806C60-8952-486D-9C31-EA381A260E51}
+		{ED7797F4-D7D2-48C6-B079-13833C9A1D82} = {68E87064-2879-43FE-B9F9-0C9283504894}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94D5D2AD-C22C-4563-9D04-3D9A38D38900}

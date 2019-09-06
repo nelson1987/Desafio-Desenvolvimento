@@ -25,7 +25,8 @@ namespace Desafio.Domain.Services
                 return new Movimentacao
                 {
                     Fundo = this.Fundo,
-                    ValorInvestido = this.ValorInvestido
+                    ValorInvestido = this.ValorInvestido,
+                    Pessoa = this.Investidor
                 };
             }
         }

@@ -20,8 +20,12 @@ namespace Desafio.Repository.Repositories
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new FundoMap());
+            modelBuilder.ApplyConfiguration(new MovimentacaoMap());
+            modelBuilder.ApplyConfiguration(new PessoaMap());
         }
 
         public DbSet<Fundo> Fundo { get; set; }
+        public DbSet<Movimentacao> Movimentacao { get; set; }
+        public DbSet<Pessoa> Pessoa { get; set; }
     }
 }

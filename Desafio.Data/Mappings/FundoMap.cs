@@ -18,6 +18,12 @@ namespace Desafio.Data.Mappings
                 .HasColumnName("NOM_FUNDO")
                 .HasMaxLength(50)
                 .IsRequired();
+
+            builder.Property(x => x.MinimoExigido)
+                .HasColumnName("VLR_INICIAL")
+                .HasColumnType("decimal(18,2)")
+                .IsRequired();
+
         }
     }
 }

@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Desafio.Api.Contracts\Desafio.Api.Contracts.csproj" />
     <ProjectReference Include="..\Desafio.Crosscutting\Desafio.Crosscutting.csproj" />
   </ItemGroup>
 

@@ -1,5 +1,6 @@
 ﻿using Desafio.Api.Contracts;
 using Desafio.Domain.Applications;
+using Desafio.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,21 +11,21 @@ namespace Desafio.Api.Controllers
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class FundoController : ControllerBase
+    public class MovimentoController : ControllerBase
     {
         // GET api/Fundo
         [HttpGet]
-        public ActionResult<IEnumerable<ListagemFundosDataTransfer>> Get([FromServices] IFundoApplication fundoApplication)
+        public ActionResult<IEnumerable<Movimentacao>> Get([FromServices] IMovimentoApplication fundoApplication)
         {
             try
             {
                 var fundos = fundoApplication.Listar();
-                return fundos.Select(x => new ListagemFundosDataTransfer(x)).ToList();
+                return fundos.ToList();
             }
             catch (Exception)
             {
                 //TODO: Logar a exception
-                return BadRequest("Erro ao listar Fundos.");
+                return BadRequest("Erro ao listar Movimentos.");
             }
         }
     }

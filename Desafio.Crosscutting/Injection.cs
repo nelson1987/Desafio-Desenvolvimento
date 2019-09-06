@@ -14,6 +14,12 @@ namespace Desafio.Crosscutting
 
             services.AddTransient<IFundoApplication, FundoApplication>();
             services.AddTransient<IFundoRepository, FundoRepository>();
+
+            services.AddTransient<IPessoaApplication, PessoaApplication>();
+            services.AddTransient<IPessoaRepository, PessoaRepository>();
+
+            services.AddTransient<IMovimentoApplication, MovimentoApplication>();
+            services.AddTransient<IMovimentoRepository,  MovimentoRepository>();
         }
     }
 }
