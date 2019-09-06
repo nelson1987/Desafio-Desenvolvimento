@@ -20,35 +20,13 @@ namespace Desafio.Data.Mappings
                 .HasColumnType("decimal(18,2)")
                 .IsRequired();
 
-            //builder.Property(x => x.Pessoa.Id)
-            //    .HasColumnName("IDT_PESSOA")
-            //    .HasColumnType("uniqueidentifier")
-            //    .IsRequired();
-
-            //builder.Property(x => x.Fundo.Id)
-            //    .HasColumnName("IDT_FUNDO")
-            //    .HasColumnType("uniqueidentifier")
-            //    .IsRequired();
-
             builder.HasOne(x => x.Pessoa)
                 .WithMany(x => x.Movimentacoes)
                 .HasForeignKey("IDT_PESSOA");
+
             builder.HasOne(x => x.Fundo)
                 .WithMany(x=>x.Movimentacoes)
                 .HasForeignKey("IDT_FUNDO");
-
-            //builder.HasOne(x => x.Fundo)
-            //    .WithMany(x => x.Movimentacoes);
-
-            //builder.HasOne(x => x.Fundo)
-            //    .WithMany(x=>x.Id)
-            //    .WithOne();
-
-            //builder.Property(x => x.MinimoExigido)
-            //    .HasColumnName("VLR_INICIAL")
-            //    .HasColumnType("decimal(18,2)")
-            //    .IsRequired();
-
         }
     }
 }
