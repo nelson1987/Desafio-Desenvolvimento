@@ -7,6 +7,6 @@ install:
 script:
 - dotnet build
 - dotnet test ./Desafio.Domain.Tests/Desafio.Domain.Tests.csproj
-- dotnet run
+- dotnet run ./Desafio.Api/Desafio.Api.csproj
 service:
 - docker
