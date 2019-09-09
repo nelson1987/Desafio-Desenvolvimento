@@ -18,6 +18,7 @@ namespace Desafio.Domain.Entities
 
         public virtual Guid Id { get; set; }
         public virtual string Nome { get; set; }
+        public virtual string Cnpj { get; set; }
         public virtual decimal MinimoExigido { get; set; }
         public virtual List<Movimentacao> Movimentacoes { get; set; }
     }

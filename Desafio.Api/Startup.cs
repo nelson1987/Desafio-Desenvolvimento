@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Desafio.Crosscutting;
+using Desafio.Crosscutting.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Desafio.Api
 {
@@ -27,6 +29,17 @@ namespace Desafio.Api
         public static void ConfigureServices(IServiceCollection services)
         {
             Injection.Init(services);
+            AutoMapperConfig.Register(services);
+            services.AddSwaggerGen(sw =>
+            {
+                sw.SwaggerDoc("v1", new Info
+                {
+                    Title = "Desafio de Desenvolvimento",
+                    Description = "Desafio de Desenvolvimento da Ativa Investimento",
+                    Version = "v1"
+                });
+            }
+            );
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -42,6 +55,12 @@ namespace Desafio.Api
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(s =>
+            {
+                s.SwaggerEndpoint("/swagger/v1/swagger.json",
+                "Projeto Asp.Net Core WebApi");
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();

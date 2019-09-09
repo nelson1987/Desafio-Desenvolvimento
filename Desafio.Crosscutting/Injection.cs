@@ -1,4 +1,5 @@
-﻿using Desafio.Application;
+﻿using AutoMapper;
+using Desafio.Application;
 using Desafio.Domain.Applications;
 using Desafio.Domain.Repositories;
 using Desafio.Repository.Repositories;
@@ -20,6 +21,7 @@ namespace Desafio.Crosscutting
 
             services.AddTransient<IMovimentoApplication, MovimentoApplication>();
             services.AddTransient<IMovimentoRepository,  MovimentoRepository>();
+
         }
     }
 }

@@ -1,9 +1,19 @@
 language: csharp
+
 mono: none
+
 dotnet: 2.2
+
 solution: "./Desafio.sln"
+
 install:
 - dotnet restore
+
 script:
 - dotnet build
 - dotnet test ./Desafio.Domain.Tests/Desafio.Domain.Tests.csproj
+
+# sudo: required
+
+# services:
+# - docker

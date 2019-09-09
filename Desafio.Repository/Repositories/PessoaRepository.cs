@@ -9,5 +9,10 @@ namespace Desafio.Repository.Repositories
         : base(context)
         {
         }
+
+        public Pessoa FindByCpf(string cpf)
+        {
+            return Find(x => x.Cpf == cpf);
+        }
     }
 }

@@ -20,12 +20,16 @@ namespace Desafio.Data.Mappings
                 .HasColumnType("decimal(18,2)")
                 .IsRequired();
 
+            builder.Property(e => e.DataMovimento)
+                .HasColumnName("DTA_MOVIMENTACAO")
+                .IsRequired();
+
             builder.HasOne(x => x.Pessoa)
                 .WithMany(x => x.Movimentacoes)
                 .HasForeignKey("IDT_PESSOA");
 
             builder.HasOne(x => x.Fundo)
-                .WithMany(x=>x.Movimentacoes)
+                .WithMany(x => x.Movimentacoes)
                 .HasForeignKey("IDT_FUNDO");
         }
     }

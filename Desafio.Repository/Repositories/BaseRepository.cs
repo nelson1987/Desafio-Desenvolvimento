@@ -10,7 +10,7 @@ namespace Desafio.Repository.Repositories
         IBaseRepository<TEntity>
 where TEntity : class
     {
-        private readonly DesafioContext context;
+        protected readonly DesafioContext context;
         //construtor com entrada de argumentos
         protected BaseRepository(DesafioContext context)
         {

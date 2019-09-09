@@ -1,9 +1,9 @@
-﻿using Desafio.Api.Contracts;
+﻿using AutoMapper;
+using Desafio.Api.Contracts.Fundo;
 using Desafio.Domain.Applications;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Desafio.Api.Controllers
 {
@@ -14,12 +14,12 @@ namespace Desafio.Api.Controllers
     {
         // GET api/Fundo
         [HttpGet]
-        public ActionResult<IEnumerable<ListagemFundosDataTransfer>> Get([FromServices] IFundoApplication fundoApplication)
+        public ActionResult<IEnumerable<ListagemFundoViewModel>> Get([FromServices] IFundoApplication application,
+            [FromServices] IMapper mapper)
         {
             try
             {
-                var fundos = fundoApplication.Listar();
-                return fundos.Select(x => new ListagemFundosDataTransfer(x)).ToList();
+                return mapper.Map<List<ListagemFundoViewModel>>(application.Listar());
             }
             catch (Exception)
             {

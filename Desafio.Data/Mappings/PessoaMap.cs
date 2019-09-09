@@ -14,6 +14,11 @@ namespace Desafio.Data.Mappings
                 .HasColumnName("IDT_PESSOA")
                 .HasColumnType("uniqueidentifier")
                 .ValueGeneratedOnAdd();
+
+            builder.Property(x => x.Cpf)
+                .HasColumnName("DOC_PESSOA")
+                .HasMaxLength(13)
+                .IsRequired();
         }
     }
 }

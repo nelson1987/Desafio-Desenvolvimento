@@ -12,9 +12,11 @@ namespace Desafio.Domain.Entities
             Movimentacoes = new List<Movimentacao>();
         }
 
-        public Guid Id { get; set; }
+        public virtual Guid Id { get; set; }
 
-        public List<Movimentacao> Movimentacoes { get; set; }
+        public virtual string Cpf { get; set; }
+
+        public virtual List<Movimentacao> Movimentacoes { get; set; }
 
         #region Metodos
 

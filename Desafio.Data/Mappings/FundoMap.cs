@@ -19,6 +19,11 @@ namespace Desafio.Data.Mappings
                 .HasMaxLength(50)
                 .IsRequired();
 
+            builder.Property(e => e.Cnpj)
+                .HasColumnName("DOC_FUNDO")
+                .HasMaxLength(50)
+                .IsRequired();
+
             builder.Property(x => x.MinimoExigido)
                 .HasColumnName("VLR_INICIAL")
                 .HasColumnType("decimal(18,2)")
