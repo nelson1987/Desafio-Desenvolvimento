@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 
 namespace Desafio.Api.Controllers
 {
@@ -15,6 +16,8 @@ namespace Desafio.Api.Controllers
     {
         // GET api/Fundo
         [HttpGet]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(IEnumerable<Pessoa>), (int)HttpStatusCode.OK)]
         public ActionResult<IEnumerable<Pessoa>> Get([FromServices] IPessoaApplication fundoApplication)
         {
             try

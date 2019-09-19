@@ -25,9 +25,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_Application", "4_Applicat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Desafio.Application", "Desafio.Application\Desafio.Application.csproj", "{13B4A555-B426-4EB5-899C-5832DAE5D2D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio.Domain.Tests", "Desafio.Domain.Tests\Desafio.Domain.Tests.csproj", "{5C64C823-B8F6-4634-A8AA-4F9F0E04679D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Desafio.Domain.Tests", "Desafio.Domain.Tests\Desafio.Domain.Tests.csproj", "{5C64C823-B8F6-4634-A8AA-4F9F0E04679D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio.Api.Contracts", "Desafio.Api.Contracts\Desafio.Api.Contracts.csproj", "{ED7797F4-D7D2-48C6-B079-13833C9A1D82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Desafio.Api.Contracts", "Desafio.Api.Contracts\Desafio.Api.Contracts.csproj", "{ED7797F4-D7D2-48C6-B079-13833C9A1D82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

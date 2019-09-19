@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace Desafio.Api
 {
@@ -12,11 +15,18 @@ namespace Desafio.Api
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-.UseKestrel()
-                .UseStartup<Startup>()
-.ConfigureKestrel((context, options) =>
-        {
-            // Set properties and call methods on options
-        });
+            .ConfigureLogging((hostingContext, logging) =>
+            {
+                logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                logging.AddConsole();
+                logging.AddDebug();
+                logging.AddEventSourceLogger();
+            })
+            .UseKestrel()
+            .UseStartup<Startup>()
+            .ConfigureKestrel((context, options) =>
+            {
+                // Set properties and call methods on options
+            });
     }
 }
